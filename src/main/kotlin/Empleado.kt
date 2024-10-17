@@ -7,7 +7,7 @@ import jakarta.persistence.Table
 @Table(name = "Empleados")
 class Empleado(
     @Id
-    val id: String,
+    val id: Long,
 
     @Column(name = "Nombre")
     val nombre: String,
