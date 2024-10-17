@@ -7,6 +7,7 @@
     <persistence-unit name="unidadMySQL" transaction-type="RESOURCE_LOCAL">
 
         <class>Empleado</class>
+        <class>Departamento</class>
 
         <properties>
             <!-- Driver -->
@@ -26,7 +27,7 @@
 
             <property name="hibernate.show_sql" value="true" />
 
-            <property name="hibernate.hbm2ddl.auto" value="create" />
+            <property name="hibernate.hbm2ddl.auto" value="create-drop" />
         </properties>
 
     </persistence-unit>

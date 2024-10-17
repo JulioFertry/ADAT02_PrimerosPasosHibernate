@@ -1,6 +1,8 @@
 import jakarta.persistence.EntityManager
 import jakarta.persistence.EntityManagerFactory
 import jakarta.persistence.Persistence
+import java.time.Instant
+import java.util.*
 
 
 fun main() {
@@ -13,8 +15,12 @@ fun main() {
     // Si queremos empezar una transacción...
     em.transaction.begin()
 
-    val emple1 = Empleado(123, "Pepe", 37)
-    val emple2 = Empleado(456, "Eustaquio", 22)
+    val fecha = Date.from(Instant.now())
+    val dptoIT = Departamento("IT", fecha, null)
+
+    val emple1 = Empleado("Pepe", 37, dptoIT, null)
+    val emple2 = Empleado("Eustaquio", 22, dptoIT, null)
+    em.persist(dptoIT)
     em.persist(emple1) // .persist() persiste el objeto en un PersistenceContext
     em.persist(emple2)
 
@@ -27,8 +33,10 @@ fun main() {
     // Nueva transacción
     em = emf.createEntityManager()
     em.transaction.begin()
-    val emple3 = Empleado(789, "Juan", 54)
+    val managedDptoIT = em.merge(dptoIT)
+    val emple3 = Empleado("Juan", 54, managedDptoIT, null)
     em.persist(emple3)
     em.transaction.commit()
     em.close()
+
 }
