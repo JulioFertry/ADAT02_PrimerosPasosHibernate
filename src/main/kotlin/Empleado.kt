@@ -14,5 +14,4 @@ class Empleado(
 
     @Column
     val edad: Int
-) {
-}
+)

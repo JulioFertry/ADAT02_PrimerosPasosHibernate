@@ -1,5 +1,8 @@
 plugins {
     kotlin("jvm") version "1.9.23"
+
+    // Por si da error el Empleado
+    kotlin("plugin.jpa") version "1.7.22"
 }
 
 group = "org.example"
