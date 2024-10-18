@@ -17,5 +17,5 @@ data class Departamento(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Columna autoincremental de la BBDD
-    val numDpt: Long? = 0
+    val numDpt: Long?
 )

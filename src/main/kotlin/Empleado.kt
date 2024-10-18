@@ -2,7 +2,7 @@ import jakarta.persistence.*
 
 @Entity
 @Table(name = "Empleados")
-class Empleado(
+data class Empleado(
 
     @Column(name = "Nombre")
     val nombre: String,
@@ -16,5 +16,5 @@ class Empleado(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Columna autoincremental de la BBDD
-    val id: Long?,
+    val id: Long?
 )

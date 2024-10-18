@@ -16,7 +16,7 @@ fun main() {
     em.transaction.begin()
 
     val fecha = Date.from(Instant.now())
-    val dptoIT = Departamento("IT", fecha, null)
+    val dptoIT = Departamento("IT", fecha, null, null)
 
     val emple1 = Empleado("Pepe", 37, dptoIT, null)
     val emple2 = Empleado("Eustaquio", 22, dptoIT, null)
